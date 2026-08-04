@@ -1,34 +1,134 @@
-body{
-    h1{
-        color: #0e0c0c;
-        text-align: center;
-        font-size: 50px;
-    }
-    h2{
-        color: #0e0c0c;
-        text-align: center;
-        font-size: 50px;
-    }
-    p{
-        color: #0e0c0c;
-        text-align: center;
-        font-size: 25px;
-    }
-    
-    button{
-        background-color: #0e0c0c;
-        color: #ffffff;
-        border: none;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-    }
-
-    background-color: #f8f8f8;
-    font-size: large;
+/* Resets the browser's default spacing on every element */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* General page styling */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8f9fc;
+    color: #222;
+}
+
+/* Top navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Exegora name in the navbar */
+.logo {
+    font-size: 1.5rem;
+}
+
+/* Navigation link list */
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+/* Individual navigation links */
+.nav-links a {
+    color: #222;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Main introductory section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+/* Main page heading */
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Text beneath the main heading */
+.hero p {
+    max-width: 650px;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Holds the two hero buttons */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Styles shared by both buttons */
+.primary-btn,
+.secondary-btn {
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Main action button */
+.primary-btn {
+    color: white;
+    background-color: #34495e;
+    border: 2px solid #34495e;
+}
+
+/* Secondary action button */
+.secondary-btn {
+    color: #34495e;
+    background-color: transparent;
+    border: 2px solid #34495e;
+}
+
+/* Keeps normal page content from becoming too wide */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Feature section */
+.features {
+    margin-top: 60px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* Three-column feature layout */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Individual feature cards */
+.feature-card {
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Space between a card heading and its paragraph */
+.feature-card h3 {
+    margin-bottom: 12px;
+}
+
+/* Makes card paragraphs easier to read */
+.feature-card p {
+    line-height: 1.6;
+}
