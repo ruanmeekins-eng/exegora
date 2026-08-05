@@ -1,16 +1,26 @@
 :root {
 
-    --primary-color: #2F5BEA;
+    --primary-color: #6f83c4;
     --secondary-color: #F5F7FC;
     --text-color: #1F2937;
-    --accent-color: #4F46E5;
-    
+    --accent-color: #8984e9;
+    --gradient-start: #fcfcfc;
+    --gradient-end: #d3dbee;
     --surface-color: #ffffff;
     --secondary-button-color: #34495e;
     --light-text-color: #ffffff;
-
+    --muted-text-color: #4b5563;
+    
     --card-radius: 14px;
     --button-radius: 6px;
+
+    /* Spacing */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 64px;
+    --space-xxl: 96px;
 
 }
 /* Resets the browser's default spacing on every element */
@@ -23,8 +33,9 @@
 /* General page styling */
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--secondary-color);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     color: var(--text-color);
+    
 }
 
 /* Top navigation bar */
@@ -34,12 +45,13 @@ body {
     align-items: center;
     padding: 20px 60px;
     background-color: var(--surface-color);
+    border-bottom-right-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 /* Exegora name in the navbar */
 .logo {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 /* Navigation link list */
@@ -47,18 +59,23 @@ body {
     display: flex;
     gap: 20px;
     list-style: none;
+    
 }
 
 /* Individual navigation links */
 .nav-links a {
+    display: inline-block;
     color: var(--text-color);
     font-weight: bold;
     text-decoration: none;
+    transition: color 0.3s ease,
+                transform 0.3s ease;
 }
 
 /* Navigation links on hover */
 .nav-links a:hover {
-    color: var(--accent-color);
+    transform: translateY(-2px);
+    color: var(--secondary-button-color);
 }
 
 /* Main introductory section */
@@ -67,33 +84,44 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 50px 20px;
+    padding: var(--space-lg) var(--space-md);
+    background: linear-gradient(
+        135deg,
+        var(--gradient-start),
+        var(--gradient-end)
+    );
 }
 
 /* Main page heading */
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: 3.8rem;
+    font-weight: 800;
+    max-width: 900px;
+    line-height: 1.1;
+    margin-bottom: var(--space-sm);
 }
 
 /* Text beneath the main heading */
 .hero p {
-    max-width: 650px;
-    margin-bottom: 30px;
-    font-size: 1.2rem;
-    line-height: 1.6;
+    max-width: 700px;
+    margin-bottom: var(--space-md);
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #555;
 }
 
 /* Holds the two hero buttons */
 .hero-buttons {
     display: flex;
-    gap: 15px;
+    flex-direction: row;
+    gap: var(--space-sm);
+    align-items: center;
 }
 
 /* Styles shared by both buttons */
 .primary-btn,
 .secondary-btn {
-    padding: 12px 24px;
+    padding: var(--space-xs) var(--space-md);
     border-radius: var(--button-radius);
     font-size: 1rem;
     cursor: pointer;
@@ -106,14 +134,15 @@ body {
 
 /* Main action button */
 .primary-btn {
-    color: white;
-    background-color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    color: var(--text-color);
+    background-color: transparent;
+    border: 2px solid var(--secondary-button-color);
 }
 
 .primary-btn:hover {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
+    transform: translateY(-1px);
+    background-color: var(--secondary-button-color);
+    color: var(--light-text-color);
 }
 
 /* Secondary action button */
@@ -124,6 +153,7 @@ body {
 }
 
 .secondary-btn:hover {
+    transform: translateY(-1px);
     background-color: var(--secondary-button-color);
     color: var(--light-text-color);
 }
@@ -137,9 +167,10 @@ body {
 
 /* Feature section */
 .features {
-    margin-top: 60px;
-    padding: 60px 20px;
+    margin-top: var(--space-xs);
+    padding: var(--space-lg) var(--space-md);
     text-align: center;
+
 }
 
 /* Three-column feature layout */
@@ -152,12 +183,18 @@ body {
 
 /* Individual feature cards */
 .feature-card {
-    padding: 30px;
+    padding: var(--space-md);
     background-color: var(--surface-color);
     border-radius: var(--card-radius);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform .3s ease,
+                box-shadow .3s ease;
 }
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
 
+}
 /* Space between a card heading and its paragraph */
 .feature-card h3 {
     margin-bottom: 12px;
@@ -168,11 +205,74 @@ body {
     line-height: 1.6;
 }
 
+
+
+/* Search Section */
+.passage-search {
+    padding: var(--space-xl) var(--space-sm);
+    text-align: center;
+    background-color: var(--surface-color);
+}
+
+.passage-search h2 {
+    margin-bottom: var(--space-sm);
+    font-size: 2rem;
+}
+
+.passage-search > .container > p {
+    margin-bottom: var(--space-md);
+    color: var(--muted-text-color);
+    
+}
+
+.search-form {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.search-form label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: bold;
+}
+
+.search-controls {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.search-controls input {
+    flex: 1;
+    padding: 12px 14px;
+    border: 2px solid #d1d5db;
+    border-radius: var(--button-radius);
+    font: inherit;
+}
+
+.search-controls input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.passage-result {
+    max-width: 650px;
+    min-height: 100px;
+    margin: var(--space-md) auto 0;
+    padding: var(--space-md);
+    text-align: left;
+    background-color: var(--secondary-color);
+    border-radius: var(--card-radius);
+}
+
+
+
+
 @media (max-width: 768px){
     .navbar{
         flex-direction: column;
-        gap: 20px;
-        padding: 20px;
+        gap: var(--space-md);
+        padding: var(--space-md);
     }
 
     .feature-grid{
@@ -186,6 +286,16 @@ body {
     .hero h1{
         font-size: 2.2rem;
     }
+
+    .search-controls {
+    flex-direction: column;
+    }   
+
+    .search-controls .primary-btn {
+    width: 100%;
+    }
+
+
 }
 
 @media (max-width: 480px){
@@ -199,4 +309,15 @@ body {
     .secondary-btn{
         width: 100%;
     }
+
+    .search-controls {
+    flex-direction: column;
+    }
+
+    .search-controls .primary-btn {
+    width: 100%;
+    }
+
+
+
 }

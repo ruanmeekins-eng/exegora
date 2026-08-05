@@ -50,6 +50,36 @@
 </header>
 
 <main>
+    <section class="passage-search">
+    <div class="container">
+        <h2>Search Scripture</h2>
+
+        <p>
+            Enter a Bible reference to begin exploring the passage.
+        </p>
+
+        <form class="search-form" id="passage-search-form">
+            <label for="passage-reference">Bible reference</label>
+
+            <div class="search-controls">
+                <input
+                    type="text"
+                    id="passage-reference"
+                    name="passage-reference"
+                    placeholder="Example: John 3:16"
+                >
+
+                <button type="submit" class="primary-btn">
+                    Search
+                </button>
+            </div>
+        </form>
+
+        <div class="passage-result" id="passage-result">
+            <p>Your passage will appear here.</p>
+        </div>
+    </div>
+</section>
     <div class="container">
     <section class="features">
         <h2>Why Exegora?</h2>
@@ -73,6 +103,7 @@
 
     </section>
     </div>
+
 </main>
 </body>
 </html>
