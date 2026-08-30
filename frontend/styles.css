@@ -261,7 +261,14 @@ body {
     border-radius: var(--card-radius);
 }
 
+.passage-result h3 {
+    margin-bottom: var(--space-sm);
+    color: var(--text-color);
+}
 
+.passage-result p {
+    line-height: 1.7;
+}
 
 
 @media (max-width: 768px){

@@ -2,6 +2,8 @@ const searchForm = document.querySelector("#passage-search-form");
 const referenceInput = document.querySelector("#passage-reference");
 const passageResult = document.querySelector("#passage-result");
 const reference = referenceInput.value;
+const resultReference = document.querySelector("#result-reference");
+const resultText = document.querySelector("#result-text");
 const passages = {
     "john 3:16": "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.",
     "genesis 1:1": "In the beginning God created the heavens and the earth.",
@@ -10,29 +12,51 @@ const passages = {
     "philippians 4:13": "I can do all this through him who gives me strength."
 }
 
+// Helper function for normalizing Bible references
+function normalizeReference(reference) {
+    return reference.trim().toLowerCase();
+}
 
+// Function to find a Bible passage by reference
+function findPassage(reference) {
+    return passages[reference];
+}
 
+// Function to display a Bible passage
+function displayPassage(reference, passage) {
+    resultReference.textContent = reference;
+    resultText.textContent = passage;
+}
 
+// Function to display an error message
+function displayError(title, message) {
+    resultReference.textContent = title;
+    resultText.textContent = message;
+}
+
+// Event listener for the search form
 searchForm.addEventListener("submit", function (event){
     event.preventDefault();
     
-    const reference = referenceInput.value.trim().toLowerCase();
+    const reference = normalizeReference(referenceInput.value);
     
+    // Search result handler
     if(reference === ""){
-        passageResult.textContent = "Your passage will appear here.";
+        displayError("Invalid search", "Please enter a valid Bible reference.");
         return;
     }
-    const passage = passages[reference];
+    
+    const passage = findPassage(reference);
+
     if (passage){
-        passageResult.textContent = passage;
-    }else{
-        passageResult.textContent = "Passage not found.";
+        // Display the found passage
+        displayPassage(reference, passage);
+    }
+    else {
+        displayError("Passage not found", `We could not find a passage for "${reference}".`);
     }
     
-    
-
-
-})
+});
 
 console.log(searchForm);
 console.log(referenceInput);
