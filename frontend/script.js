@@ -1,4 +1,5 @@
 const searchForm = document.querySelector("#passage-search-form");
+const searchButton = searchForm.querySelector("button[type='submit']");
 const referenceInput = document.querySelector("#passage-reference");
 const resultReference = document.querySelector("#result-reference");
 const resultTranslation = document.querySelector("#result-translation");
@@ -72,15 +73,16 @@ function parseReference(reference) {
 async function getPassage(reference) {
     const encodedReference = encodeURIComponent(reference);
 
-    const url = `https://bible-api.com/${encodedReference}?translation=kjv`;
+    const url = `https://bible-api.com/${encodedReference}?translation=web`;
 
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
-    return data;
+    
+    return await response.json();
 }
+
 // Function to display a Bible passage
 function displayPassage(passage) {
     resultReference.textContent = passage.reference;
@@ -91,16 +93,16 @@ function displayPassage(passage) {
     passage.verses.forEach(function (verse) {
         const verseParagraph =
             document.createElement("p");
+            verseParagraph.classList.add("verse");
 
         const verseNumber =
             document.createElement("span");
+            verseNumber.classList.add("verse-number");
 
         verseNumber.textContent = verse.verse;
 
         verseParagraph.appendChild(verseNumber);
-        verseParagraph.appendChild(
-            document.createTextNode("    \t")
-        );
+        
         verseParagraph.append(
             " " + verse.text.trim()
         );
@@ -126,12 +128,40 @@ function displayError(title, message) {
     resultVerses.appendChild(errorMessage);
 }
 
+
+
+function displayLoading(reference) {
+    resultReference.textContent = `Loading ${reference}...`;
+    resultTranslation.textContent = "";
+
+    resultVerses.innerHTML = "";
+
+    const loadingMessage = document.createElement("p");
+    loadingMessage.textContent = "Retrieving passage...";
+
+    resultVerses.appendChild(loadingMessage);
+}
+
+function setLoading(isLoading) {
+    if (isLoading) {
+        searchButton.textContent = "Searching...";
+        searchButton.disabled = true;
+    } else {
+        searchButton.textContent = "Search";
+        searchButton.disabled = false;
+    }
+}
+function cleanReference(reference) {
+    return reference
+        .trim()
+        .replace(/:\s+/g, ":");
+}
 // Event listener for the search form
 searchForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     // Get the reference entered by the user
-    const reference = referenceInput.value.trim().replace(/:\s+/g, ":");
+    const reference = cleanReference(referenceInput.value);
 
     // Make sure the input is not empty
     if (reference === "") {
@@ -155,6 +185,8 @@ searchForm.addEventListener("submit", async function (event) {
 
     // Try to retrieve the passage from the Bible API
     try {
+        displayLoading(reference);
+        setLoading(true);
         const passage = await getPassage(reference);
    
         displayPassage(passage);
@@ -166,5 +198,7 @@ searchForm.addEventListener("submit", async function (event) {
             "Unable to load passage",
             "Something went wrong while retrieving the passage."
         );
+    } finally {
+        setLoading(false);
     }
 });

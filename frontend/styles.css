@@ -288,6 +288,25 @@ body {
     color: var(--primary-color);
 }
 
+#result-verses p {
+    margin-bottom: var(--space-sm);
+    line-height: 1.8;
+}
+
+#result-verses p:last-child {
+    margin-bottom: 0;
+}
+
+#result-verses span {
+    margin-right: 6px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.search-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 @media (max-width: 768px){
     .navbar{
         flex-direction: column;
