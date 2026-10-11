@@ -1,0 +1,347 @@
+.navbar {
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 20px 0;
+}
+
+.navbar-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1e3a5f;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 32px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #334155;
+    font-weight: 500;
+}
+
+.navbar-links a:hover {
+    color: #2563eb;
+}
+/* Hero Section */
+
+.hero {
+    min-height: 460px;
+    padding: 100px 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    background-color: #eff6ff;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: #1e3a5f;
+    margin-bottom: 24px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 14px 26px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.btn-primary {
+  border: 1.5px solid #043252;  
+  background-color: white;
+    color: #043252;
+}
+
+.btn-primary:hover {
+    background-color: #043252;
+    color: white;
+}
+
+.btn-secondary {
+    border: 1.5px solid #043252;  
+  background-color: white;
+    color: #043252;
+}
+
+.btn-secondary:hover {
+    background-color: #043252;
+    color: white;
+}
+
+#passage-search {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 24px;
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 70px 20px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* Features Section */
+
+.features {
+    padding: 80px 24px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 34px;
+    color: #1e3a5f;
+    margin-bottom: 40px;
+}
+
+.features-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.feature-card {
+    padding: 32px 24px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    text-align: left;
+    transition: transform 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    color: #1e3a5f;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #475569;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Scripture Search */
+
+.search-card {
+    background: white;
+    padding: 36px;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.search-card h2 {
+    color: #1e3a5f;
+    margin-top: 0;
+}
+
+.search-description {
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+.search-controls {
+    display: flex;
+    gap: 12px;
+}
+
+.search-controls input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+
+.search-controls button {
+    padding: 14px 24px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.search-controls button:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.search-controls button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.search-placeholder {
+    margin-top: 28px;
+    color: #64748b;
+}
+
+.search-error {
+    margin-top: 20px;
+    color: #b91c1c;
+}
+
+.passage-result {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.passage-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.passage-heading h3 {
+    color: #1e3a5f;
+    margin: 0;
+}
+
+.passage-heading span {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.verse {
+    line-height: 1.9;
+    color: #334155;
+    margin-bottom: 12px;
+}
+
+.verse-number {
+    color: #2563eb;
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+@media (max-width: 600px) {
+    .search-card {
+        padding: 24px 18px;
+    }
+
+    .search-controls {
+        flex-direction: column;
+    }
+
+    .passage-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.reader-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 24px;
+}
+
+.reader-page > h1 {
+    color: #1e3a5f;
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.reader-page > p {
+    color: #64748b;
+    margin-bottom: 32px;
+}
+
+.verse-button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #334155;
+    text-align: left;
+    line-height: 1.8;
+    cursor: pointer;
+}
+
+.verse-button:hover {
+    background: #f1f5f9;
+}
+
+.verse-button.selected {
+    background: #eff6ff;
+    border-color: #93c5fd;
+}
+
+.verse-details {
+    margin-top: 28px;
+    padding: 24px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.verse-details h3 {
+    color: #1e3a5f;
+    margin-top: 0;
+}
