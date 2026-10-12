@@ -69,7 +69,12 @@ function PassageSearch() {
 
         {error && <p className="search-error">{error}</p>}
 
-        {passage && <PassageResult passage={passage} />}
+        {passage && (
+            <PassageResult
+                key={passage.reference}
+                passage={passage}
+             />
+        )}
     </section>
 );
 }

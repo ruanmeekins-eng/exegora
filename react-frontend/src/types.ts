@@ -19,3 +19,10 @@ export type BiblePassage = {
     text: string;
     verses: BibleVerse[];
 };
+
+export type OriginalWord = {
+    original: string;
+    transliteration: string;
+    meaning: string;
+    morphology: string;
+};

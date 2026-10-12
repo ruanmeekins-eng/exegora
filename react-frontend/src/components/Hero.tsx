@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function Hero() {
     return (
         <section className="hero">
@@ -10,9 +12,9 @@ function Hero() {
                 </p>
 
                 <div className="hero-buttons">
-                    <a href="#passage-search" className="btn-primary">
-                        Begin Reading
-                    </a>
+                    <Link to="/reader" className="btn-primary">
+                         Begin Reading
+                    </Link>
 
                     <a href="#features" className="btn-secondary">
                         Learn More

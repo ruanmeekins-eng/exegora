@@ -345,3 +345,78 @@
     color: #1e3a5f;
     margin-top: 0;
 }
+
+.verse-analysis {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.verse-analysis h4 {
+    color: #1e3a5f;
+    margin-bottom: 12px;
+}
+
+.verse-analysis p {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.original-language-analysis {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.original-words-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.original-word-card {
+    padding: 20px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.original-word-card h4 {
+    font-size: 26px;
+    color: #1e3a5f;
+    margin: 0 0 16px;
+}
+
+.original-word-card p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .original-words-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.analysis-loading {
+    padding: 20px;
+    color: #2563eb;
+    text-align: center;
+    font-weight: 500;
+}
+.analysis-error {
+    margin-top: 20px;
+}
+
+.analysis-error button {
+    padding: 10px 18px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.analysis-error button:hover {
+    background: #1d4ed8;
+}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { BiblePassage, BibleVerse } from "../types.ts";
-
+import VerseDetails from "./VerseDetails.tsx";
 // Defines the props this component receives
 type PassageResultProps = {
     passage: BiblePassage;
@@ -32,7 +32,14 @@ function PassageResult({ passage }: PassageResultProps) {
                                 : ""
                         }`}
                         key={`${verse.chapter}-${verse.verse}`}
-                        onClick={() => setSelectedVerse(verse)}
+                        onClick={() => {setSelectedVerse((currentVerse) => {
+                            if (currentVerse?.chapter === verse.chapter && currentVerse?.verse === verse.verse) {
+                                return null;
+                            }
+
+                        return verse;
+                    });
+                }}
                     >
                         <span className="verse-number">
                             {verse.verse}
@@ -45,17 +52,7 @@ function PassageResult({ passage }: PassageResultProps) {
 
             {/* Show details only when a verse is selected */}
             {selectedVerse !== null && (
-                <div className="verse-details">
-                    <h3>
-                        {selectedVerse.book_name}{" "}
-                        {selectedVerse.chapter}:{selectedVerse.verse}
-                    </h3>
-
-                    <p>{selectedVerse.text}</p>
-
-                    <h4>Original Language Analysis</h4>
-                    <p>Coming soon...</p>
-                </div>
+                <VerseDetails verse={selectedVerse} />
             )}
 
         </div>
